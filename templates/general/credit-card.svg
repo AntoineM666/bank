@@ -1,18 +1,6 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}Hello GenerealController!{% endblock %}
-
-{% block body %}
-<body style="background:#EAEDED">
-<div style="margin-left:500px;margin-top:30px">
-<h1 style="font-weight:bold;color:#11bad5;">Bienvenue chez Hello Bank </h1>
-</div>
-
-
-<!-- image svg  -->
 <?xml version="1.0" encoding="iso-8859-1"?>
-
-<svg style="height:500px;width:600px;margin-left:500px;margin-top:30px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 512.001 512.001" style="enable-background:new 0 0 512.001 512.001;" xml:space="preserve">
 <path style="fill:#146AA8;" d="M481.53,347.033l30.015-191.649c3.121-19.448-10.112-37.747-29.561-40.877l0,0L76.973,49.501
 	C57.525,46.38,39.227,59.613,36.106,79.061l-14.392,89.627v177.23L481.53,347.033z"/>
@@ -71,6 +59,3 @@
 <g>
 </g>
 </svg>
-
-</body>
-{% endblock %}

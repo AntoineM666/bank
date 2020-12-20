@@ -5,48 +5,56 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 {% endblock %}
+<link rel = "preconnect" href = "https://fonts.gstatic.com">
+<link href = "https://fonts.googleapis.com/css2? family = Capriola & display = swap" rel = "feuille de style ">
     </head>
     <body>
        {% if is_granted('ROLE_ADMIN') %}
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a style="color:#11bad5;font-weight:bold" class="navbar-brand" href="#">Menu Admin</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="#" href="{{path('general')}}">Home</a>
+          <a class="nav-link active" aria-current="#" href="{{path('general')}}">Accueil</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{path('user_account_index')}}">admins</a>
+          <a class="nav-link" href="{{path('user_account_index')}}">Admin</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{path('addaccount')}}">add acount bank</a>
+          <a class="nav-link" href="{{path('addaccount')}}">Ajouter un compte bancaire</a>
         </li>
          <li class="nav-item">
-          <a class="nav-link" href="{{path('app_register')}}">make Useraccount</a>
+          <a class="nav-link" href="{{path('app_register')}}">Créer l'identifiant utilisateur</a>
         </li>
       </ul>
     </div>
   </div>
-   
+    {% if app.user %}
+        
+              <a class="btn btn-primary" style="margin-right:10px" href="{{ path('app_logout') }}">se deconnecter</a>
+            {% else %}
+              <a href="{{ path('app_login') }}">se connecter</a>
+            {% endif %} 
 </nav>
 {% endif %}
+ {% if app.user %}
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a style="color:#11bad5;font-weight:bold" class="navbar-brand" href="#">Hello Bank Compte</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="#" href="{{path('general')}}">Home</a>
+          <a class="nav-link active" aria-current="#" href="{{path('general')}}">Accueil</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{path('user_index')}}">my account</a>
+          <a class="nav-link" href="{{path('user_index')}}">Mon compte</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">transaction</a>
@@ -55,16 +63,26 @@
       </ul>
     </div>
   </div>
-     {% if app.user %}
-        
-              <a href="{{ path('app_logout') }}">se deconnecter</a>
-            {% else %}
-              <a href="{{ path('app_login') }}">se connecter</a>
+  {% endif %} 
+    {% if app.user %}
+    <a class="btn btn-primary" style="margin-right:10px"  href="{{ path('app_logout') }}">se deconnecter</a>
+   </nav>
+     {% else %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" style="color:#11bad5;font-weight:bold" href="#">Hello Bank</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    </div>
+  </div>
+    <a class="btn btn-primary" style="margin-right:10px" href="{{ path('app_login') }}">se connecter</a>
+   </nav>
+            
             {% endif %} 
-
-</nav>
 
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
+        
     </body>
 </html>
