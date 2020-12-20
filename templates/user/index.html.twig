@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User index{% endblock %}
+
+{% block body %}
+    <h1>client</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>name</th>
+                 <th>firstname</th>
+                <th>Email</th>
+                <th>date</th>
+                <th>iban</th>
+                <th>solde</th>
+            
+            </tr>
+        </thead>
+        <tbody>
+      
+            <tr>
+                <td>{{ app.user.user.name }}</td>
+                 <td>{{ app.user.user.firstname }}</td>
+                <td>{{ app.user.email }}</td>
+                <td>{{ app.user.user.date|date("m/d/Y") }}</td>
+                <td>{{ app.user.user.account.iban }}</td>
+                <td>{{ app.user.user.account.solde}}</td>
+              
+            </tr>
+      
+          
+        </tbody>
+    </table>
+
+   
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}UserAccount index{% endblock %}
+
+{% block body %}
+    <h1>admin panel</h1>
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>firstname</th>
+                <th>Date</th>
+                
+                
+
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user_account in user_accounts %}
+            <tr>
+                <td>{{ user_account.id }}</td>
+                <td>{{ user_account.name }}</td>
+                <td>{{ user_account.firstname }}</td>
+                <td>{{ user_account.date ? user_account.date|date('Y-m-d') : '' }}</td>
+      
+      
+                <td>
+                    <a href="{{ path('user_account_show', {'id': user_account.id}) }}">show</a>
+                    <a href="{{ path('user_account_edit', {'id': user_account.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+    <a href="{{ path('user_account_new') }}">Create new</a>
+{% endblock %}
